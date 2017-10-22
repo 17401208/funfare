@@ -1,0 +1,43 @@
+<!--create.ejs-->
+<h2>FunFare Create form</h2>
+
+<form action="/city/create" method="POST" class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-sm-2">Name: </label>
+        <div class="col-sm-6">
+            <input class="form-control" name="City[name]" type="text">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2">Region: </label>
+        <div class="col-sm-6">
+            <select class="form-control" name="City[region]" id="region" oncharge="regionSelected()">
+            <option value="nan">Please select one</option>
+            <option value="west">America</option>
+          </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2">City: </label>
+        <div class="col-sm-6">
+        <select class="form-control" id="cities" disabled>
+        </select>
+    </div>
+
+
+
+
+    <button class="btn btn-default" type="submit" value="ADD">Submit</button>
+</form>
+
+
+
+<!-- <script>
+      function regionSelected(){
+
+      var region=document.getElementById("region").value);
+
+      }
+</script> -->
