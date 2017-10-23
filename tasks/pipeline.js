@@ -32,7 +32,8 @@ var jsFilesToInject = [
   'js/dependencies/**/*.js',
 
   'js/jquery.js',
-  'js/popper.js', 
+  'js/popper.js',
+  'js/moment.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.

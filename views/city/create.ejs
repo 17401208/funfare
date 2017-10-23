@@ -2,42 +2,152 @@
 <h2>FunFare Create form</h2>
 
 <form action="/city/create" method="POST" class="form-horizontal">
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label class="control-label col-sm-2">Name: </label>
         <div class="col-sm-6">
             <input class="form-control" name="City[name]" type="text">
         </div>
-    </div>
+    </div> -->
+  <div class="row">
+   <div class="col-sm-6">
+
+  <div class="form-group">
+      <label class="control-label col-sm-2">Region: </label>
+      <select class="form-control" id="region" onchange="regionSelected()">
+        <option value="nan">Please select one:</option>
+        <option value="east">East Asia</option>
+        <option value="south">South-east Asia</option>
+        <option value="usa">Americas</option>
+      </select>
+  </div>
+
+  <div class="form-group">
+      <label class="control-label col-sm-2">City: </label>
+      <select class="form-control" id="cities" disabled>
+      </select>
+  </div>
 
     <div class="form-group">
-        <label class="control-label col-sm-2">Region: </label>
-        <div class="col-sm-6">
-            <select class="form-control" name="City[region]" id="region" oncharge="regionSelected()">
-            <option value="nan">Please select one</option>
-            <option value="west">America</option>
+        <label class="control-label col-sm-2">Class: </label>
+        <!-- <div class="col-sm-6"> -->
+            <select class="form-control" name="City[class]" id="class" oncharge="classSelected()">
+            <option value="business">Business</option>
+            <option value="economy">Economy</option>
           </select>
-        </div>
+        <!-- </div> -->
     </div>
 
     <div class="form-group">
-        <label class="control-label col-sm-2">City: </label>
-        <div class="col-sm-6">
-        <select class="form-control" id="cities" disabled>
-        </select>
+        <label class="control-label col-sm-2">Price: </label>
+        <!-- <div class="col-sm-6"> -->
+            <input class="form-control" name="City[price]" type="number" min="0">
+        <!-- </div> -->
     </div>
-
-
 
 
     <button class="btn btn-default" type="submit" value="ADD">Submit</button>
+
+  </div>
+
+
+  <div class="col-sm-6" id=forSelect>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2">Image: </label>
+        <!-- <div class="col-sm-6"> -->
+            <input class="form-control" name="City[iamge]" type="text">
+        <!-- </div> -->
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-4">Deal Valid Till: </label>
+        <!-- <div class="col-sm-6"> -->
+            <input data-provide="datepicker" class="form-control" name="City[date]" type="text" name="daterange" value="01/01/2017 " />
+        <!-- </div> -->
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2">Quota: </label>
+        <!-- <div class="col-sm-6"> -->
+            <input class="form-control" name="City[quota]" type="number">
+        <!-- </div> -->
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2">Dates: </label>
+            <!-- <input data-provide="datepicker"> -->
+            <input id="dates" class="form-control" name="City[date]" type="text" name="daterange" value="01/01/2017 - 01/31/2017" />
+
+    </div>
+
+  </div>
+
+
+</div>
 </form>
 
-
-
-<!-- <script>
-      function regionSelected(){
-
-      var region=document.getElementById("region").value);
-
-      }
+<!-- <script type="text/javascript">
+$(function() {
+    $('input[name="daterange"]').daterangepicker();
+});
 </script> -->
+
+
+<script>
+function regionSelected() {
+// alert(document.getElementById("region").value);
+var region = document.getElementById("region").value;
+
+var cities = document.getElementById("cities");
+cities.options.length = 0;
+if (region == "east") {
+
+    var option = document.createElement("option");
+    option.text = "Osaka";
+    option.value = "osaka";
+    cities.add(option);
+
+    var option = document.createElement("option");
+    option.text = "Seoul";
+    option.value = "seoul";
+    cities.add(option);
+
+    cities.disabled = false;
+
+} else if (region == "south") {
+
+    var option = document.createElement("option");
+    option.text = "Cebu";
+    option.value = "cebu";
+    cities.add(option);
+
+    var option = document.createElement("option");
+    option.text = "Singapore";
+    option.value = "singapore";
+    cities.add(option);
+
+    cities.disabled = false;
+
+} else if (region == "usa") {
+
+    var option = document.createElement("option");
+    option.text = "Los Angeles";
+    option.value = "los angeles";
+    cities.add(option);
+
+    var option = document.createElement("option");
+    option.text = "Boston";
+    option.value = "boston";
+    cities.add(option);
+
+    cities.disabled = false;
+
+} else {
+    cities.disabled = true;
+}
+
+}
+
+
+
+</script>
